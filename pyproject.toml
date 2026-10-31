@@ -1,7 +1,7 @@
 [project]
 name = "curso-ai-engineering"
 version = "0.1.0"
-description = "Add your description here"
+description = "Ejercicios del curso de AI Engineering"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
@@ -9,4 +9,18 @@ dependencies = []
 [dependency-groups]
 dev = [
     "ipykernel>=7.4.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1",
 ]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+# Repo de ejercicios, no una librería: no hay paquetes que instalar.
+# Sin esto, setuptools detecta ejercicios/ y notebooks/ como paquetes y falla.
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+testpaths = ["ejercicios"]
